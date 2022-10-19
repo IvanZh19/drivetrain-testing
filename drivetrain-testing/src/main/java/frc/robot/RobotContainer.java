@@ -18,8 +18,13 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  private final Drivetrain drivetrain = new Drivetrain();
 
+  private final XBoxController drivercontroller = new XBoxController(0);
+    final JoystickButton l2 = new JoystickButton(m_joystick, 9);
+    final JoystickButton r2 = new JoystickButton(m_joystick, 10);
+    final JoystickButton l1 = new JoystickButton(m_joystick, 11);
+    final JoystickButton r1 = new JoystickButton(m_joystick, 12);
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -34,7 +39,14 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
+  private void configureButtonBindings() {
+      final JoystickButton l2 = new JoystickButton(m_joystick, 9);
+      l2.whenPressed(new DriveForward(drivetrain));
+      l1.whenPressed(new DriveBackward(drivetrain));
+      r1.whileheld(new TurnSomeAngle(drivetrain));
+      
+
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
