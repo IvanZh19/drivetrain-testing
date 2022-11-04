@@ -44,9 +44,19 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
 
-    drivetrain.setDefaultCommand(new RunCommand(() -> {
-      drivetrain.drive(drivercontroller.getAButton() ? 2: 0, drivercontroller.getXButton() ? 2 : 0);
-    }, drivetrain));
+    drivetrain.setDefaultCommand(new RunCommand()) -> {
+          speed = 2*drivetrain.getLeftY();
+          turnspeed = drivetrain.getLeftX();
+
+          if (speed > 0.1 || turnspeed > 0.1) {
+            drivetrain.drive(speed, turnspeed);
+
+          }
+    }
+
+    //drivetrain.setDefaultCommand(new RunCommand(() -> {
+    //  drivetrain.drive(drivercontroller.getAButton() ? 2: 0, drivercontroller.getXButton() ? 2 : 0);
+    // }, drivetrain));
       // final JoystickButton l2 = new JoystickButton(m_joystick, 9);
       // l2.whenPressed(new DriveForward(drivetrain));
       // l1.whenPressed(new DriveBackward(drivetrain));
