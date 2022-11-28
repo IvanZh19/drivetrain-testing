@@ -14,7 +14,7 @@ public class DriveForward extends CommandBase {
   //@SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   //private final ExampleSubsystem m_subsystem;
 
-  public DriveForward(Drivetrain drivetrain) {
+  public DriveForward(Drivetrain drivetrain, speed) {
     this.drivetrain = drivetrain;
     // Use addRequirements() here to declare subsystem dependencies.
     // addRequirements(subsystem);

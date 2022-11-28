@@ -9,6 +9,10 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.ParallelRaceGroup
+
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -55,6 +59,15 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return {
+      new ParallelRaceGroup(new DriveForward(speed), new Thread.sleep(5000));
+      // new ParallelRaceGroup(new drive(speed), new Thread.sleep(5000));
+
+    }
+    
+    // return DriveForward(speed);
+    
+    
+    // return m_autoCommand;
   }
 }
