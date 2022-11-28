@@ -74,7 +74,7 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
     
-    m_autoCommand = ParallelRaceGroup(new drivetrain.drive(1.0,0), new Thread.sleep(5000))
+    m_autoCommand = ParallelRaceGroup(new drivetrain.drive(1.0,0), new Thread.sleep(5000));
     
     return m_autoCommand;
   }
